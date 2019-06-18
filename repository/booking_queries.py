@@ -158,7 +158,7 @@ def find_date_used(booking: Booking) -> datetime:
     Activity = versioning_manager.activity_cls
     find_by_id_and_is_used = "table_name='booking' " \
                              "AND verb='update' " \
-                             "AND cast(old_data->>'id' AS INT) = %s " \
+                             "AND cast(changed_data->>'id' AS INT) = %s " \
                              "AND cast(changed_data->>'isUsed' as boolean) = true" % booking.id
 
     activity = Activity.query.filter(text(find_by_id_and_is_used)).first()
