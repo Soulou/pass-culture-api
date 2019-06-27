@@ -49,7 +49,7 @@ def install_features():
         feature = Feature()
         feature.populate_from_dict(
             {
-                'name': toggle,
+                'name': str(toggle).replace('FeatureToggle.', ''),
                 'description': toggle.value,
                 'is_active': True
             }
