@@ -187,6 +187,19 @@ RECOMMENDATION_INCLUDES = [
     "isFavorite"
 ]
 
+USER_INCLUDES = [
+    '-culturalSurveyId',
+    '-password',
+    '-resetPasswordToken',
+    '-resetPasswordTokenValidityLimit',
+    '-validationToken',
+    'expenses',
+    'hasPhysicalVenues',
+    'hasOffers',
+    'wallet_balance',
+    'wallet_is_activated'
+]
+
 BOOKING_INCLUDES = [
     "completedUrl",
     "isUserCancellable",
@@ -208,6 +221,13 @@ BOOKING_INCLUDES = [
         ]
     },
     "stock"
+]
+
+BOOKING_WITH_USER_INCLUDES = BOOKING_INCLUDES + [
+    {
+        "key": "user",
+        "sub_joins": USER_INCLUDES
+    }
 ]
 
 PRO_BOOKING_INCLUDES = [
@@ -236,18 +256,6 @@ PRO_BOOKING_INCLUDES = [
             'lastName': element['lastName']
         }),
     }
-]
-
-USER_INCLUDES = [
-    '-culturalSurveyId',
-    '-password',
-    '-resetPasswordToken',
-    '-resetPasswordTokenValidityLimit',
-    '-validationToken',
-    'hasPhysicalVenues',
-    'hasOffers',
-    'wallet_balance',
-    'wallet_is_activated'
 ]
 
 VENUE_INCLUDES = [
