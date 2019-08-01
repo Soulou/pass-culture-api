@@ -120,31 +120,7 @@ OFFER_INCLUDES = [
 ]
 
 FAVORITE_INCLUDES = [
-    "-userId",
-    {
-        "key": "firstMatchingRecommendation",
-        "sub_joins": [
-            {
-                "key": "offer",
-                "sub_joins": [
-                    "dateRange",
-                    "favorites",
-                    "isEvent",
-                    "isFinished",
-                    "isFullyBooked",
-                    {
-                        "key": "product",
-                        "sub_joins": ["offerType", "thumbUrl"]
-                    },
-                    "isThing",
-                    "stocks",
-                    "venue",
-                ]
-            },
-            "mediation",
-            "thumbUrl"
-        ]
-    }
+    "-userId"
 ]
 
 RECOMMENDATION_INCLUDES = [
@@ -170,7 +146,8 @@ RECOMMENDATION_INCLUDES = [
             }
         ]
     },
-    "thumbUrl"
+    "thumbUrl",
+    "isFavorite"
 ]
 
 USER_INCLUDES = [
