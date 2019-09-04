@@ -10,7 +10,7 @@ class CreateRecommendationsForDiscoveryTest:
     @clean_database
     def test_returns_offer_in_all_ile_de_france_for_user_from_93(self, app):
         # given
-        departements_ok = ['75', '77', '78', '91', '92', '93', '94', '95']
+        departements_ok = ['75', '77', '92', '93', '94', '95']
         departements_ko = ['34', '973']
 
         user = create_user(departement_code='93')
@@ -29,7 +29,7 @@ class CreateRecommendationsForDiscoveryTest:
 
         # then
         recommended_offer_ids = set([recommendation.offerId for recommendation in recommendations])
-        assert len(recommendations) == 8
+        assert len(recommendations) == 6
         assert recommended_offer_ids == offer_ids_in_adjacent_department
 
     @clean_database
